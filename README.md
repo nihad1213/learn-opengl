@@ -1,0 +1,1 @@
+This repository is based on learning OpenGL from the website learnopengl.com and contains my practice implementations and experiments.

@@ -18,7 +18,7 @@ int main() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    GLFWwindow* window = glfwCreateWindow(800, 600, "HelloTriangle", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(800, 600, "Shader", NULL, NULL);
 
     if (!window) {
         std::cout << "Failed to create GLFW window" << std::endl;
@@ -101,6 +101,11 @@ int main() {
 
         glUseProgram(shaderProgram);
         glBindVertexArray(VAO);
+
+        float currentTime = glfwGetTime();
+        int timeLocation = glGetUniformLocation(shaderProgram, "time");
+        glUniform1f(timeLocation, currentTime);
+
         glDrawArrays(GL_TRIANGLES, 0, 3);
 
         glfwSwapBuffers(window);
